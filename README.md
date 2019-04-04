@@ -18,13 +18,14 @@ Regex matching of the text to extract information in a structured format.
 ### RCReader.zip
 
 Django web application for viewing and querying the RC details database.
+Scanned data from mobile Android application is inserted into structured database.
 
 # Libraries and Dependencies
 
 - Spyder
 - OpenCV
-- Tesseract
+- Google Tesseract
 - Django
 - Ajax
 - SQLite
-- 
+
