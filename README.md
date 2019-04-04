@@ -7,17 +7,19 @@ Developing an Automised Scanning and Storage system, that implements OCR to extr
 
 ### Untitled1.py
 
-Using OpenCV to capture contours of the image and detect boundaries of the RC Card.
+Using OpenCV to capture contours of the image and detect boundaries of the RC Card. The Region Of Interest(ROI) is then found and converted into grayscale and stored for text extraction.
 
 ### matching.py
 
-Using OCR to extract image from the text.
+Using OCR to extract text from the image.
 Regex matching of the text to extract information in a structured format.
 
 
 # Libraries and Dependencies
 
 Spyder
+
 OpenCV
+
 Tesseract
 
