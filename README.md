@@ -24,4 +24,7 @@ Django web application for viewing and querying the RC details database.
 - Spyder
 - OpenCV
 - Tesseract
-
+- Django
+- Ajax
+- SQLite
+- 
