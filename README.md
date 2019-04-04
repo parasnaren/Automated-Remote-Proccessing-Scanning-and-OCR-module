@@ -15,6 +15,9 @@ Using OpenCV to capture contours of the image and detect boundaries of the RC Ca
 Using OCR to extract text from the image.
 Regex matching of the text to extract information in a structured format.
 
+### RCReader.zip
+
+Django web application for viewing and querying the RC details database.
 
 # Libraries and Dependencies
 
