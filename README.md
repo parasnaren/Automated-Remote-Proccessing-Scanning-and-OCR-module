@@ -17,9 +17,9 @@ Regex matching of the text to extract information in a structured format.
 
 # Libraries and Dependencies
 
-Spyder
+- Spyder
 
-OpenCV
+- OpenCV
 
-Tesseract
+- Tesseract
 
