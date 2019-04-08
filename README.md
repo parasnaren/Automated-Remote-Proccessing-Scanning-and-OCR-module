@@ -2,30 +2,31 @@
 Developing an Automised Scanning and Storage system, that implements OCR to extract text from a scanned RC Card and store the structured data into a Database.
 
 # Data Flow
-(to be filled)
+
+###Implementation of input :
+
+Build an Android app that works as a scanner, by using the smartphone's camera. 
+The app would act as an IP Camera that would establish a socket connection over the network.
+This port would be opened on the Web App running OpenCV to read the frames from the feed.
+Inverse Binary Thresholding followed by dilation to get image boundaries.
+Contouring of the boundaries to obtain the optimal frame.
 
 # Files
 
-### Untitled1.py
+###RecognitionCam.zip
 
-Using OpenCV to capture contours of the image and detect boundaries of the RC Card. The Region Of Interest(ROI) is then found and converted into grayscale and stored for text extraction.
+Django web application with the necessary ...
 
-### matching.py
 
-Using OCR to extract text from the image.
-Regex matching of the text to extract information in a structured format.
 
-### RCReader.zip
-
-Django web application for viewing and querying the RC details database.
-Scanned data from mobile Android application is inserted into structured database.
 
 # Libraries and Dependencies
 
-- Spyder
-- OpenCV
 - Google Tesseract
+- OpenCV
 - Django
+- Android Studio
 - Ajax
 - SQLite
+
 
