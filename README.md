@@ -3,7 +3,7 @@ Developing an Automised Scanning and Storage system, that implements OCR to extr
 
 # Data Flow
 
-###Implementation of input :
+### Implementation of input :
 
 Build an Android app that works as a scanner, by using the smartphone's camera. 
 The app would act as an IP Camera that would establish a socket connection over the network.
@@ -13,11 +13,10 @@ Contouring of the boundaries to obtain the optimal frame.
 
 # Files
 
-###RecognitionCam.zip
+### RecognitionCam.zip
 
-Django web application with the necessary ...
-
-
+Django web application.
+Set up computer as server and run the mobile application as client.
 
 
 # Libraries and Dependencies
