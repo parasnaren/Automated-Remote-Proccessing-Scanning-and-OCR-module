@@ -5,17 +5,29 @@ Developing an Automised Scanning and Storage system, that implements OCR to extr
 
 ### Android App
 
-#### The app scans multiple frames in real time and relays them from the smartphone camera to a port on the network. 
-#### The frames are sent as a HTTP stream to the server
+- The app scans multiple frames in real time and relays them from the smartphone camera to a port on the network. 
+- The frames are sent as a HTTP stream to the server
 
+### Identification of the RC card from its background:
 
-### Implementation of input :
+- Thresholding: Simple Thresholding is implemented on a grayscale image over a particular threshold value
+- Dilation: The boundaries are enhanced using dilation. It is useful in joining broken parts of an object
+- Contouring: The required image is obtained based on its boundary points based on the contour constraints
+- Overlay: The image obtained is superimposed on the original image to obtain the precise boundaries
 
-Build an Android app that works as a scanner, by using the smartphone's camera. 
-The app would act as an IP Camera that would establish a socket connection over the network.
-This port would be opened on the Web App running OpenCV to read the frames from the feed.
-Inverse Binary Thresholding followed by dilation to get image boundaries.
-Contouring of the boundaries to obtain the optimal frame.
+### Process images to pick the optimal:
+
+- A single channel of an image (grayscale) and convolve it with a 3 x 3 kernel. The variance of the kernel is found
+- If an image contains high variance then there is a wide spread of responses, and therefore, an in-focus image. But if there is very low variance, then there is a tiny spread of responses, indicating there are very little edges in the image. As we know, the more an image is blurred, the less edges there are.
+- The variance of all the images are found and the image with the max value of variance ( ie., least blurry) is picked.
+
+### Extract the text features using TESSERACT:
+
+Tesseract is used to extract characters from the picked image.
+
+### Regex
+
+Regular expressions are implemented to uniquely identify every value for a given key-value pair, since the RC cards of the various states in India have different syntaxes for their keys.
 
 # Files
 
