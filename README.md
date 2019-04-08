@@ -3,6 +3,12 @@ Developing an Automised Scanning and Storage system, that implements OCR to extr
 
 # Data Flow
 
+### Android App
+
+#### The app scans multiple frames in real time and relays them from the smartphone camera to a port on the network. 
+#### The frames are sent as a HTTP stream to the server
+
+
 ### Implementation of input :
 
 Build an Android app that works as a scanner, by using the smartphone's camera. 
