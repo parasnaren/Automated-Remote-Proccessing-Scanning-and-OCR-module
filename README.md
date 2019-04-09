@@ -7,6 +7,7 @@ Developing an Automised Scanning and Storage system, that implements OCR to extr
 
 - The app scans multiple frames in real time and relays them from the smartphone camera to a port on the network. 
 - The frames are sent as a HTTP stream to the server
+- The app has been made completely light-weight. All the computation takes place completely at the server end and the app is responsible solely for relaying video feed.
 
 ### Identification of the RC card from its background:
 
