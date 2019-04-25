@@ -1,5 +1,5 @@
 # Remote Processing based RC Scanning module
-Developing an Automised Scanning and Storage system, that implements OCR to extract text from a scanned RC Card and store the structured data into a Database.
+Developed a completely Remote and Automized Scanning and Storage system, that implements OCR to extract text from a scanned RC Card and stores the structured data into a Database.
 
 # Data Flow
 
