@@ -34,6 +34,10 @@ Regular expressions are implemented to uniquely identify every value for a given
 
 ### RecognitionCam.zip
 
+Contains the android app to be run on the smartphone, that relays the video feed.
+
+### myapp
+
 Django web application.
 Set up computer as server and run the mobile application as client.
 
