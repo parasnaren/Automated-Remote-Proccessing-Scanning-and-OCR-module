@@ -1,0 +1,454 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Smart India Hackathon 2019
+  </title>
+  <style>
+
+	#logos
+	{
+		position:relative;
+		left:1500px;
+	}
+  html
+  {
+      scroll-behavior: smooth;
+  }
+</style>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{% static 'img/logos/favicon.ico' type='image/x-icon' %}">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/scrolling-nav.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+
+      <button id="btnboi1"type="button" onclick="sendvaltobackend()" style="display: none;" class="btn btn-primary btn-lg" >Edit</button>
+      <pre>  </pre>
+       <button id="btnboi2"type="button" onclick="getallwords()" style="display: none;" class="btn btn-primary btn-lg" >View all </button>
+
+  <pre>  </pre>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top" id="navtxt">Smart India Hackathon 2019</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#rows">Rows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#search">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#table">Table</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="bg-primary text-white" id="header">
+    <div class="container text-center">
+      <h1 id="main"><font size="10">RC CARD INFORMATION</font></h1>
+
+      <p class="lead"></p>
+    </div>
+  </header>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+          $(document).ready(function () {
+              $("ul[id*=myid] li").click(
+
+                function () {
+                   // gets innerHTML of clicked li
+
+                  var currentselect = $(this).text();
+
+                  // gets text contents of clicked li
+                  var temp2 = document.getElementById("temp2").innerHTML;
+
+                  var temp2arr = temp2.split("]");
+                  var temp3arr = temp2.split(",");
+
+                  var count = 0;
+                  var i;
+                  var finalstring = "";
+                  var secondcount = 0;
+
+                  var oddarr = [];
+                  var evenarr = [];
+
+                  for (i = 0; i <=temp3arr.length; i++) {
+                      if (currentselect == temp3arr[i])
+                      {
+                      count = 1;
+                      i = i + 1;
+                      }
+                      if (count == 1 && temp3arr[i] != "]" && i%2!=0)
+                      {
+                        finalstring = finalstring +"&bull;"+temp3arr[i] +" - ";
+                        oddarr.push(temp3arr[i]);
+                      }
+                      if (temp3arr[i] == "]" && count == 1)
+                      {
+                        break;
+                      }
+                      if(i%2==0 && count==1 && temp3arr[i] != "]")
+                      {
+                        finalstring = finalstring +temp3arr[i]+ "</br></br>";
+                        if(temp3arr[i]==0)
+						{
+                        evenarr.push("Inconsistent");   <!--temp3arr[i] -->
+						}
+						else
+						{
+						 evenarr.push("Consistent"); 
+						}
+						
+
+                      }
+                  }
+
+                  // adding the array to the <ul> odd :
+                  $(myItemListfirst).empty();
+                  var addheader = currentselect;
+                  var ul = document.getElementById("myItemListfirst");
+                  var li;
+
+                  for (i = 0; i <=oddarr.length-1; i++) {
+                    li = document.createElement("li");
+                    li.className = "liclass";
+
+
+
+
+
+                    li.onmouseover = function() {
+                      var rect = this.getBoundingClientRect();
+
+                      var d = document.getElementById('btndiv');
+
+                      document.getElementById("btnboi1").style.display = 'block';
+                      document.getElementById("btnboi2").style.display = 'block';
+
+                      document.getElementById("sendtobackend").innerHTML = this.innerHTML;
+
+
+            // ajax end
+
+
+                    };
+                    li.appendChild(document.createTextNode(oddarr[i]));
+                    ul.appendChild(li);
+
+                  }
+                  //  end of adding
+
+
+                  // adding for even :
+
+                  $(myItemListsecond).empty();
+                  var addheader = currentselect;
+                  var ul = document.getElementById("myItemListsecond");
+                  var li;
+
+                  for (i = 0; i <=evenarr.length-1; i++) {
+                    li = document.createElement("li");
+                    li.className = "liclass";
+
+                    // adding the hover buttons
+
+
+
+                    // end of hover buttons
+
+                    li.onmouseover = function() {
+                      var rect = this.getBoundingClientRect();
+
+                      var d = document.getElementById('btndiv');
+
+                      document.getElementById("btnboi1").style.display = 'block';
+                      document.getElementById("btnboi2").style.display = 'block';
+
+                      document.getElementById("sendtobackend").innerHTML = this.innerHTML;
+                      // ajax function here : DO NOT CHANGE THE AJAX FUNCTION
+
+
+                    };
+                    li.appendChild(document.createTextNode(evenarr[i]));
+                    ul.appendChild(li);
+
+                  }
+                  //  end of adding
+
+                  // end of adding even :
+                  addheader = addheader + "</br></br>"+finalstring;
+                  finalstring = addheader;
+
+
+
+
+              });
+          });
+
+
+
+        function sendvaltobackend()
+          {
+            alert("Do you want to change the consistency ?  "+document.getElementById("sendtobackend").innerHTML)
+            $.ajax({
+       type:"POST",
+       url:"/ajaxfunc/",
+       data: {
+              'data': document.getElementById("sendtobackend").innerHTML,
+              csrfmiddlewaretoken: '{{ csrf_token }}'
+               // from form
+              },
+       success: function(){
+           $('#message').html("<h2>Contact Form Submitted!</h2>")
+       }
+  });
+          }
+
+
+
+            function getallwords() {
+
+            window.location.href="http://127.0.0.1:8000/getwords/?word="+ document.getElementById("sendtobackend").innerHTML+"#table";
+            }
+
+  </script>
+
+
+
+
+<style>
+
+.liclass
+{
+  width:100px;
+}
+
+#selectedp
+{
+  position:relative;
+  left:550px;
+  bottom:500px;
+}
+
+#myItemListsecond
+{
+  position:relative;
+  left:150px;
+  bottom:130px;
+}
+
+
+
+
+</style>
+
+  <section id="rows">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 id="rows">Rows : </h2>
+
+          <div id="btndiv">
+
+          </div>
+
+
+
+          <ul id='myid' >
+          {% for i in Data %}
+                 <li>{{i}}</li>
+                 </br>
+          {% endfor %}
+          </ul>
+
+          <h2 id="selectedp">
+            <ul id='myItemListfirst' >
+          </ul>
+          <ul id='myItemListsecond' style="list-style-type:none;">
+        </ul>
+          </h2>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+
+  #navtxt:hover
+  {
+    filter: brightness(50%);
+  }
+  #logoezdi
+  {
+    position:relative;
+    bottom:1800px;
+    right:350px;
+  }
+  #logoezdi:hover
+  {
+    filter: brightness(50%);
+
+  }
+
+  #searchbtn
+  {
+    position:relative;
+    left:10px;
+  }
+  </style>
+
+  <script>
+
+  function getwords() {
+
+  window.location.href="http://127.0.0.1:8000/getwords/?word="+ document.getElementById("searchinput").value +"#table";
+  }
+
+  </script>
+
+
+
+  <section id="search" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 id="searchh2">Search : </h2>
+
+
+  <!-- Include the above in your HEAD tag ---------->
+  </div>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Include the above in your HEAD tag ---------->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <div class="container">
+    <br/>
+  <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i id="ic"class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input id="searchinput" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search for keywords...">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button onclick="getwords()" id="searchbtn"type="button" class="btn btn-primary btn-lg">Search</button>
+                                    </div>
+
+
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+  </div>
+          <p class="lead">
+
+          </p>
+        </div>
+      </div>
+
+  </section>
+
+
+
+
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  </style>
+
+    <section id="table">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 id="teb">Table : </h2>
+
+
+            <p id="temp2" style="color:white;" >{{temp2}}</p>
+
+
+            <p class="lead">
+
+              <table style="width:100%">
+              {% for i in datasent %}
+              <tr>
+                     {%for j in i %} 
+                     <td>{{j}}</td>
+                      {% endfor %}
+                   </tr>
+              {% endfor %}
+              </table>
+
+
+<p id="sendtobackend"style="color:white;"></p>
+<p id="sendtobackendeven"style="color:white;"></p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Website by : TeamCoders6</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js'}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'js/scrolling-nav.js'}"></script>
+
+</body>
+
+</html>

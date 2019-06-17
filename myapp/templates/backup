@@ -1,0 +1,29 @@
+@permission_required('admin.can_add_log_entry')
+def contact_upload(request):
+    template = "stats.html"
+
+    prompt = {
+    }
+    if request.method == "GET":
+        return render(request, template, prompt)
+
+    csv_file = request.FILES['file']
+
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request, "This file is not a .csv file")
+
+    data_set = csv_file.read().decode('utf-8')
+
+    io_string = io.StringIO(data_set)
+      next(io_string)
+      for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+          _, created = Contact.objects.update_or_create(
+              first_name=column[0],
+              last_name=column[1],
+              email=column[2],
+              ip_address=column[3],
+              message=column[4]
+          )
+          
+    context = {'first_name' :data_set}
+    return render(request, template, context)

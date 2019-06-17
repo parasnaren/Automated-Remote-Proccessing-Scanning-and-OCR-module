@@ -1,0 +1,474 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Riskcovry Insurance
+  </title>
+  <style>
+  #logorisky:hover
+  {
+      transform: scale(0.98);
+      filter: brightness(98%);
+  }
+	#logos
+	{
+		position:absolute;
+		left:1500px;
+	}
+  a:hover{
+  transform: scale(1.1);
+  }
+
+  html
+  {
+      scroll-behavior: smooth;
+  }
+
+  #searchbtn:hover{
+    transform: scale(0.98);
+  }
+
+  #secondimg
+  {
+    position:relative;
+    left:550px;
+    opacity : 0;
+  }
+   #searchbtn
+  {
+
+    position:relative;
+    left:10px;
+  }
+
+  #searchinput:hover
+  {
+      transform: scale(1.03);
+  }
+  td {
+  height: 50px;
+	}
+  th {
+  height: 80px;
+	}
+
+  .runsc
+  {
+    position:relative;
+    left:-100px;
+    bottom:100px;
+  }
+
+
+  .run
+  {
+    position:relative;
+    bottom:100px;
+  }
+
+  #table{
+    position:relative;
+    left:-160px;
+  }
+</style>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' type='image/x-icon' %}">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/scrolling-nav.css' %}" rel="stylesheet">
+
+</head>
+
+
+  <script>
+
+  function runscancode(){
+
+    $.ajax({
+  type:"POST",
+  url:"/runscanner/",
+  data: {
+      'data': 'workwork',
+      csrfmiddlewaretoken: '{{ csrf_token }}'
+       // from form
+      },
+  success: function(data){
+  var src = "{% static "img/rc.jpeg" %}"
+  document.getElementById('secondimg').src=src;
+  document.getElementById('secondimg').style.opacity = "1.0";
+
+  }
+  });
+
+  }
+  </script>
+
+<script>
+
+function sendata() {
+
+  $.ajax({
+type:"POST",
+url:"/getajaxwords/",
+data: {
+    'data':document.getElementById("searchinput").value,
+
+    csrfmiddlewaretoken: '{{ csrf_token }}'
+     // from form
+    },
+success: function(data){
+  data = data.split("|");
+  sendata2(data);
+}
+});
+
+}
+
+</script>
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger text-dark" href="#page-top" id="navtxt">BMSCE Hackathon</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger text-dark" href="#Scan">Scan</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger text-dark" href="#Search">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger text-dark" href="#table">Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger text-dark" href="#tech">Tools</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ <a href="https://www.riskcovry.com/" target="_blank">
+          <img  align = "center "   id="logorisky" class="mx-auto" src="{% static "/img/logos/logoris.png" %}" alt="Image Here"/>
+          </a>
+  <header class="bg-info text-white" id="header" id="head">
+    <div class="container text-center">
+
+      <h1><font size="10">RC CARD INFORMATION</font></h1>
+      <p class="lead"></p>
+    </div>
+  </header>
+
+
+  <section id="Scan">
+    <div class="container">
+      <div class="run">
+        <div class="col-lg-8 mx-auto">
+          <h2>Scan : </h2>
+          <h1 class="runsc">
+            <img  onclick="runscancode()" align = "center " height="200" width="200"  id="logorisky" class="mx-auto rounded-circle" src="{% static "/img/scan.png" %}" alt="Image Here"/>
+</h1>
+
+
+            <img align = "center "  width="500"  id="secondimg" src=""/>
+
+  </section>
+
+ <section id="Search" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 id="searchh2">Search : </h2>
+
+
+  <!-- Include the above in your HEAD tag ---------->
+  </div>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Include the above in your HEAD tag ---------->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <div class="container">
+    <br/>
+  <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i id="ic"class="fas fa-search h4 text-body">.</i>
+                                    </div>
+                                    &nbsp
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input id="searchinput" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search for keywords...">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                      <button onclick="sendata()" id="searchbtn" type="button" class="btn btn-warning btn-lg">S E A R C H</button>
+                                    </div>
+
+
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+  </div>
+          <p class="lead">
+
+          </p>
+        </div>
+      </div>
+
+  </section>
+
+
+      <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	padding: 15px;
+	text-align: center;
+  }
+
+  </style>
+
+    <section id="table">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 id="teb">Table : </h2>
+            <div id="table">
+            <table id="myTable" cellpadding="2" cellspacing="2" border="1" onclick="tester()"></table>
+            <script>
+            function sendata2(data)
+            {
+              tab = data;
+            var rc;
+            var count = 0;
+            for (var j = 0; j < data.length/12 -1; j++) {
+                rc = {
+                  state:tab[0+count],
+                  registration_no:tab[1+count],
+                  Owner:tab[2+count],
+                  model:tab[3+count],
+                  makers_name:tab[4+count],
+                  year_of_manufacture:tab[5+count],
+                  chassis_no:tab[6+count],
+                  engine_no:tab[7+count],
+                  reg_date:tab[8+count],
+                  valid_date:tab[9+count],
+                  road_tax_upto:tab[10+count],
+                  fuel_used:tab[11+count],
+                };
+                count = count + 12;
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(j);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+                var cell7 = row.insertCell(6);
+                var cell8 = row.insertCell(7);
+                var cell9 = row.insertCell(8);
+                var cell10 = row.insertCell(9);
+                var cell11 = row.insertCell(10);
+                var cell12 = row.insertCell(11);
+
+                cell1.innerHTML = rc.state,
+                cell2.innerHTML = rc.registration_no,
+                cell3.innerHTML = rc.Owner,
+                cell4.innerHTML = rc.model,
+                cell5.innerHTML = rc.makers_name,
+                cell6.innerHTML = rc.year_of_manufacture,
+                cell7.innerHTML = rc.chassis_no,
+                cell8.innerHTML = rc.engine_no,
+                cell9.innerHTML = rc.reg_date,
+                cell10.innerHTML = rc.valid_date,
+                cell11.innerHTML = rc.road_tax_upto,
+                cell12.innerHTML = rc.fuel_used;
+            }
+          }
+            </script>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <style>
+
+  #navtxt:hover
+  {
+    transform: scale(1.03);
+    filter: brightness(50%);
+  }
+  #logorisky
+  {
+    position:absolute;
+    top:100px;
+    left:150px;
+  }
+  #softimg
+  {
+    position:relative;
+    left:90px;
+    align:center;
+  }
+
+  </style>
+
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+		<pre>
+
+		</pre>
+
+          <!--
+          THE RISKOVERY LOGO HAS BEEN USED HERE FOR THE HEADER FOR BETTER PLACEMENT : DO NOT CHANGE THE POSITION
+          -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+
+
+
+  <style>
+
+  #heading
+  {
+    position:relative;
+    text-align:center;
+  }
+
+  #dj
+  {
+    position:relative;
+    left:150px;
+  }
+
+  #docker
+  {
+    position:relative;
+    left:250px;
+  }
+
+  #cloud
+  {
+    position:relative;
+    left:350px;
+  }
+
+  #watson
+  {
+    position:relative;
+    left:450px;
+  }
+
+  #pubmed
+  {
+    position:relative;
+    left:150px;
+    top:50px;
+  }
+
+  #gensim
+  {
+    position:relative;
+    left:250px;
+    top:50px;
+  }
+
+  #nltk
+  {
+    position:relative;
+    left:300px;
+    top:50px;
+  }
+
+
+  .tools:hover
+  {
+    filter: brightness(50%);
+
+  }
+
+  </style>
+
+  <section id="tech"><p>
+  <div class="col-lg-8 mx-auto">
+         <p>
+           <h2 id="heading">Software Tools Used
+		         </h2>
+		     </p>
+   </div>
+
+    &nbsp
+    <a  target="_blank" id="softimg">
+     <img class="tools" align = "center " id="dj" src="{% static "img/logos/soft.jpeg" %}"  alt="Image Here"/>
+     </a>
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-info">
+    <div class="container">
+      <p class="m-0 text-center text-white">Website by : Byte Me</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js'}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'js/scrolling-nav.js'}"></script>
+
+</body>
+
+</html>

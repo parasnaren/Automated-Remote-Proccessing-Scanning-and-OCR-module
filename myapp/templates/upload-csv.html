@@ -1,0 +1,23 @@
+<!--
+USE AS A REFERENCE AND NOTHING ELSE :
+-->
+
+{% if messages %}
+    {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            <strong>{{ message|safe }}</strong>
+        </div>
+    {% endfor %}
+{% else %}
+    {{order}}
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <label>Upload File</label>
+            <input type="file" name="file">
+            <p>Only Accepts CSV Files</p>
+            <button type="save">Upload</button>
+        </form>
+
+        <p>
+              first  :{{first_name}}
+          </p>
+{% endif %}
