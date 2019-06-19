@@ -38,8 +38,10 @@ Contains the android app to be run on the smartphone, that relays the video feed
 
 ### myapp
 
-Django web application.
-Set up computer as server and run the mobile application as client.
+Django web application. Set up computer as server and run the mobile application as client.
+
+Run the below command in the cloned repository.
+command: *python manage.py runserver*
 
 
 # Libraries and Dependencies
