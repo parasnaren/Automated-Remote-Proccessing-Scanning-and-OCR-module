@@ -1,0 +1,119 @@
+<script>
+
+function getwords() {
+
+window.location.href="http://127.0.0.1:8000/getwords/?word="+ document.getElementById("searchinput").value +" ";
+}
+
+</script>
+
+
+  <section id="search" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 id="searchh2">Search : </h2>
+
+
+<!-- Include the above in your HEAD tag ---------->
+</div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i id="ic"class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input id="searchinput" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search for keywords...">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button onclick="getwords()" id="searchbtn"type="button" class="btn btn-primary btn-lg">Search</button>
+                                    </div>
+
+
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+          <p class="lead">
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+  <section id="table">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Table : </h2>
+
+          <p class="lead">
+
+            <table style="width:100%">
+            {% for i in datasent %}
+            <tr>
+              {%for j in i %}
+                   <td>{{j}}</td>
+                   {% endfor %}
+                 </tr>
+            {% endfor %}
+            </table>
+
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script>
+  function visualisation() {
+
+  window.location.href="http://127.0.0.1:8000/visualisation/";
+  }
+</script>
+  <section id="graphs" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Graphs :</h2>
+
+
+                    <div id="special" style = "position:relative;">
+                    <button onclick="visualisation()" type="button" class="btn btn-primary btn-lg">
+                      See Visualisation
+                    </button>
+                    </div>
+
+          <p class="lead">
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
